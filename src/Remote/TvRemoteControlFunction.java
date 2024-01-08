@@ -2,7 +2,6 @@ package Remote;
 
 public class TvRemoteControlFunction implements ITvRemoteControllable, IProgramControllable {
 
-    public void Remote() {}
     public int volume = 10;
     public int maxVolume=100;
     public int minVolume=0;

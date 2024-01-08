@@ -20,7 +20,7 @@ public class AcRemoteControlFunction implements IAcRemoteControllable, IProgramC
     @Override
     public void tempUp() {
         if (temperature>= maxTemperature){
-            System.out.printf("온도를 올릴 수 없습니다. \n최대 온도는 %d°C 입니다.\n",  temperature);
+            System.out.printf("온도를 올릴 수 없습니다. \n최대 온도는 %d°C 입니다.\n",  maxTemperature);
             return;
         }
         System.out.println("온도를 1°C 올립니다");
