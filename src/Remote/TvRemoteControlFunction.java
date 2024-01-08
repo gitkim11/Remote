@@ -1,14 +1,14 @@
 package Remote;
 
-public class RemoteFunction implements RemoteControl{
+public class TvRemoteControlFunction implements ITvRemoteControllable, IProgramControllable {
 
-    public void Remote() {
-    }
+    public void Remote() {}
     public int volume = 10;
+    public int maxVolume=100;
+    public int minVolume=0;
 
     @Override
-    public void tvOn() {
-        System.out.println("tv를 켭니다");
+    public void tvOn() { System.out.println("tv를 켭니다");
     }
 
     @Override
@@ -18,9 +18,8 @@ public class RemoteFunction implements RemoteControl{
 
     @Override
     public void volumeUp() {
-        if (volume>=100){
-            System.out.println("볼륨을 올릴 수 없습니다. \n최대 볼륨은 100입니다.");
-            volume=100;
+        if (volume>= maxVolume){
+            System.out.printf("볼륨을 올릴 수 없습니다. \n최대 볼륨은 %d입니다.\n",  maxVolume);
             return;
         }
         System.out.println("볼륨을 1 올립니다");
@@ -30,15 +29,13 @@ public class RemoteFunction implements RemoteControl{
 
     @Override
     public void volumeDown() {
-        if (volume<=0){
-            System.out.println("볼륨을 내릴 수 없습니다. \n최소 볼륨은 0입니다.");
+        if (volume<=minVolume){
+            System.out.printf("볼륨을 내릴 수 없습니다. \n최소 볼륨은 %d입니다.\n", minVolume);
             return;
         }
-
         System.out.println("볼륨을 1 내립니다");
         volume--;
         System.out.printf("현재 볼륨 = %d 입니다 \n", volume);
-        
     }
 
     @Override
